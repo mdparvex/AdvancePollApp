@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\poll",
+    "\\poll\\templates",
+    "\\poll\\templates\\poll",
+    "\\user",
+    "\\user\\templates\\user"
+  ],
+  "SelectedNode": "\\user\\forms.py",
+  "PreviewInSolutionExplorer": false
+}

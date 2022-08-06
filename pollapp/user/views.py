@@ -42,6 +42,8 @@ def Register(request):
 	return render(request, 'user/register.html',{"form":user})
 
 def Login(request):
+	if request.user.is_authenticated:
+		return redirect('index')
 	if request.method == 'POST':
 		username = request.POST.get('username')
 		password = request.POST.get('password')
