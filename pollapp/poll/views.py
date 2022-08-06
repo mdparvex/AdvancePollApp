@@ -92,7 +92,7 @@ def polls_edit(request, poll_id):
             form.save()
             messages.success(request, "Poll Updated successfully.",
                              extra_tags='alert alert-success alert-dismissible fade show')
-            return redirect("polls:list")
+            return redirect("index")
 
     else:
         form = EditPollForm(instance=poll)
@@ -104,7 +104,7 @@ def polls_edit(request, poll_id):
 def polls_delete(request, poll_id):
     poll = get_object_or_404(Poll, pk=poll_id)
     if request.user != poll.owner:
-        return redirect('home')
+        return redirect('index')
     poll.delete()
     messages.success(request, "Poll Deleted successfully.",
                      extra_tags='alert alert-success alert-dismissible fade show')
@@ -125,7 +125,7 @@ def add_choice(request, poll_id):
             new_choice.save()
             messages.success(
                 request, "Choice added successfully.", extra_tags='alert alert-success alert-dismissible fade show')
-            return redirect('polls:edit', poll.id)
+            return redirect('edit', poll.id)
     else:
         form = ChoiceAddForm()
     context = {
